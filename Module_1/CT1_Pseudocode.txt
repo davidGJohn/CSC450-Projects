@@ -1,0 +1,14 @@
+BEGIN
+
+  // Declare and initialize personal information
+  SET firstName TO "Jeffery"
+  SET lastName TO "Roberts"
+  SET address TO "2714 Joe Lane"
+  SET city TO "Burmingham"
+  SET zipCode TO 27215
+
+  // Output greeting using the personal information
+  DISPLAY "Hello, I am " + firstName + " " + lastName
+  DISPLAY "I live at " + address + ", " + zipCode + " in " + city
+
+END
