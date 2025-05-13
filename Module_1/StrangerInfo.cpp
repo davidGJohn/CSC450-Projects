@@ -12,10 +12,10 @@ int main()
 	string address = "2714 Joe Lane";
 	string city = "Burmingham";
 	int zipCode = 27215;
-	
+	// Output
 	cout << "Hello, I am " << firstName << " " << lastName << endl;
 	cout << "I live at " << address << ", " << zipCode << " in " << city << endl;
 	
-
+	// Main Function return Statement
 	return 0;
 }
