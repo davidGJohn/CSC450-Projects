@@ -1,0 +1,20 @@
+START PROGRAM
+
+PRINT String Concatenation Program
+
+REPEAT 3 TIMES
+    PRINT Enter the first string
+    READ input1 from user
+
+    PRINT Enter the second string
+    READ input2 from user
+
+    SET result = input1 + input2
+
+    PRINT Concatenated string  + result
+
+END REPEAT
+
+PRINT Program completed successfully.
+
+END PROGRAM
