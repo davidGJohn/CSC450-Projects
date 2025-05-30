@@ -1,0 +1,36 @@
+START PROGRAM
+
+PRINT Dynamic Memory and Pointers Program
+
+DECLARE ptr1 as pointer to integer
+DECLARE ptr2 as pointer to integer
+DECLARE ptr3 as pointer to integer
+
+ALLOCATE memory for ptr1 using new
+ALLOCATE memory for ptr2 using new
+ALLOCATE memory for ptr3 using new
+
+PRINT Enter the first integer
+READ value into *ptr1
+
+PRINT Enter the second integer
+READ value into *ptr2
+
+PRINT Enter the third integer
+READ value into *ptr3
+
+PRINT First value: + *ptr1 + at address + ptr1
+PRINT Second value: + *ptr2 + at address + ptr2
+PRINT Third value: + *ptr3 + at address + ptr3
+
+DELETE memory at ptr1
+DELETE memory at ptr2
+DELETE memory at ptr3
+
+SET ptr1 = null
+SET ptr2 = null
+SET ptr3 = null
+
+PRINT Program completed successfully.
+
+END PROGRAM
