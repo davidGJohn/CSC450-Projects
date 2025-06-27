@@ -1,0 +1,46 @@
+START PROGRAM
+
+PRINT Concurrency Counter Program
+
+// Step 1: Declare shared resources
+DECLARE mtx as mutex
+DECLARE cv as condition_variable
+DECLARE countUpDone as boolean = false
+
+// Step 2: Define countUp function
+DEFINE FUNCTION countUp
+    FOR i FROM 0 TO 20 DO
+        SLEEP for 100 milliseconds
+        PRINT "Count Up: ", i
+    END FOR
+
+    LOCK mtx
+    SET countUpDone = true
+    UNLOCK mtx
+    NOTIFY cv
+END FUNCTION
+
+// Step 3: Define countDown function
+DEFINE FUNCTION countDown
+    ACQUIRE mtx
+    WAIT on cv UNTIL countUpDone is true
+    RELEASE mtx
+
+    FOR i FROM 20 DOWN TO 0 DO
+        SLEEP for 100 milliseconds
+        PRINT "Count Down: ", i
+    END FOR
+END FUNCTION
+
+// Step 4: Main execution
+PRINT Starting counting threads...
+
+CREATE thread t1 to run countUp
+CREATE thread t2 to run countDown
+
+JOIN thread t1
+JOIN thread t2
+
+PRINT Both threads have completed.
+
+END PROGRAM
